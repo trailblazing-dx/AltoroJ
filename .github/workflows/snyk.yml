@@ -10,6 +10,9 @@ name: Prebuilt repo + Snyk Security Scanning (OS, Code, Docker, IaC)
 
 on: [push, pull_request]
 
+runs-on: [self-hosted]
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
