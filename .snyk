@@ -1,13 +1,24 @@
 custom_rules:
-  - id: 'LeakedCreditCard'
-    description: 'Potential non-compliance with the Payment Card Industry Data Security Standard (PCI DSS) concerning credit card data handling has been detected in the codebase. '
-    severity: 'high'
+  - id: 'Leaked Credit Card'
+    description: 'Potential non compliance with the Payment Card Industry Data Security Standard concerning credit card data handling has been detected in the codebase.'
+    severity: 'low'
     cwe:
       - 'CWE-532'
-    fix_analysis: "The PCI DSS is established to protect sensitive cardholder data, with specific guidelines on how to securely handle, store, and transmit credit card information. Compliance with these standards is paramount for maintaining customer trust and data security.\n\nTo resolve this violation:\n\n1. **Identify** the specific area of non-compliance indicated in the code.\n2. **Review** the associated PCI DSS requirements to understand the potential risk.\n3. **Correct** the non-compliant code or process.\n4. **Validate** the resolution by re-scanning the codebase.\n\nFor additional insights, refer to a PCI Qualified Security Assessor (QSA) or the [PCI Security Standards Council guidelines](https://www.pcisecuritystandards.org/pci_security/)."
-    rule_code: "CustomTaintVuln<\n  \"getCreditCardNumber\",\n  PRED:None,\n  ~\".*log.*\"\n>"
+    fix_analysis: 'The description follows here'
+    rule_code: 'Taint<"getCreditCardNumber",PRED:None,~".*log.*">'
     languages:
-      - 'javascript'
+      - 'apex'
+      - 'c'
+      - 'cpp'
+      - 'csharp'
+      - 'go'
       - 'java'
+      - 'javascript'
+      - 'kotlin'
+      - 'php'
       - 'python'
-
+      - 'ruby'
+      - 'scala'
+      - 'swift'
+      - 'typescript'
+      - 'vb'
