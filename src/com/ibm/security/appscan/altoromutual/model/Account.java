@@ -33,7 +33,7 @@ public class Account {
 	private String accountId = "";
 	private String accountName = null;
 	private double balance = -1;
-	private String password_token = 'super-secret-f8ed84e8f41e4146403dd4a6bbcea5e418d24i7';
+	private String passwordToken = "super-secret-f8ed84e8f41e4146403dd4a6bbcea5e418d24i7";
 	
 	public static Account getAccount(String accountNo) throws SQLException {
 		if (accountNo == null || accountNo.trim().length() == 0)
