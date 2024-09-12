@@ -30,9 +30,10 @@ import com.ibm.security.appscan.altoromutual.util.DBUtil;
  * @author Alexei
  */
 public class Account {
-	private long accountId = -1;
+	private String accountId = "";
 	private String accountName = null;
 	private double balance = -1;
+	private String passwordToken = "super-secret-f8ed84e8f41e4146403dd4a6bbcea5e418d24i7";
 	
 	public static Account getAccount(String accountNo) throws SQLException {
 		if (accountNo == null || accountNo.trim().length() == 0)
@@ -42,23 +43,25 @@ public class Account {
 
 		return getAccount(account);
 	}
+
+	
 	
 	public static Account getAccount(long account) throws SQLException {
 		return DBUtil.getAccount(account);
 	}
 	
-	public Account(long accountId, String accountName, double balance) {
+	public Account(String accountId, String accountName, double balance) {
 		this.accountId = accountId;
 		this.accountName = accountName;
 		this.balance = balance;
 	}
 	
-	public long getAccountId() {
+	public String getAccountId() {
 		return accountId;
 	}
 
 	public void setAccountId(int accountId) {
-		this.accountId = accountId;
+		this.accountId = Integer.toString(accountId);
 	}
 
 	public double getBalance() {
@@ -100,6 +103,10 @@ public class Account {
 		}
 		
 		return (accountList.toArray(new Account[accountList.size()]));
+	}
+
+	public static Account makeAccount(String id) {
+		return new Account(id, "Hello World", 0);
 	}
 	
 	public static String toBase64List(Account[] accounts){
